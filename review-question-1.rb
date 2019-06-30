@@ -1,4 +1,5 @@
 ## QUESTION 1
+require 'pry'
 
 pokemon = [
   {
@@ -62,6 +63,22 @@ pokemon = [
 
 
 # How would you get the url for Bulbasaur's ability?
+pokemon.each do |monster|
+    monster.each do |key, value|
+        if value == "bulbasaur"
+            monster[:abilities][0].each do |stat_key, stat_value|
+                if stat_key == :ability
+                    stat_value.each do |ability_key, ability_value|
+                        if ability_key == :url
+                            # binding.pry
+                            puts ability_value
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
 # How would you return the first pokemon with base experience over 40?
 # How would you return ALL OF THE pokemon with base experience over 40? (Gotta catch em all)
 # How would you return an array of all of the pokemon's names?
